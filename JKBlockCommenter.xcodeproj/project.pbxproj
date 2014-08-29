@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A9A4C5D19B0E37F0012268D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9A4C5C19B0E37F0012268D /* AppKit.framework */; };
+		4A9A4C5F19B0E37F0012268D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9A4C5E19B0E37F0012268D /* Foundation.framework */; };
+		4A9A4C6519B0E37F0012268D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9A4C6319B0E37F0012268D /* InfoPlist.strings */; };
+		4A9A4C6819B0E37F0012268D /* JKJKBlockCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A4C6719B0E37F0012268D /* JKJKBlockCommenter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A9A4C5919B0E37F0012268D /* JKBlockCommenter.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKBlockCommenter.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A9A4C5C19B0E37F0012268D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4A9A4C5E19B0E37F0012268D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4A9A4C6219B0E37F0012268D /* JKBlockCommenter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JKBlockCommenter-Info.plist"; sourceTree = "<group>"; };
+		4A9A4C6419B0E37F0012268D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4A9A4C6619B0E37F0012268D /* JKJKBlockCommenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJKBlockCommenter.h; sourceTree = "<group>"; };
+		4A9A4C6719B0E37F0012268D /* JKJKBlockCommenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKJKBlockCommenter.m; sourceTree = "<group>"; };
+		4A9A4C6919B0E37F0012268D /* JKBlockCommenter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKBlockCommenter-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A9A4C5619B0E37F0012268D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9A4C5D19B0E37F0012268D /* AppKit.framework in Frameworks */,
+				4A9A4C5F19B0E37F0012268D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A9A4C5019B0E37F0012268D = {
+			isa = PBXGroup;
+			children = (
+				4A9A4C6019B0E37F0012268D /* JKBlockCommenter */,
+				4A9A4C5B19B0E37F0012268D /* Frameworks */,
+				4A9A4C5A19B0E37F0012268D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4A9A4C5A19B0E37F0012268D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A9A4C5919B0E37F0012268D /* JKBlockCommenter.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A9A4C5B19B0E37F0012268D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A9A4C5C19B0E37F0012268D /* AppKit.framework */,
+				4A9A4C5E19B0E37F0012268D /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A9A4C6019B0E37F0012268D /* JKBlockCommenter */ = {
+			isa = PBXGroup;
+			children = (
+				4A9A4C6619B0E37F0012268D /* JKJKBlockCommenter.h */,
+				4A9A4C6719B0E37F0012268D /* JKJKBlockCommenter.m */,
+				4A9A4C6119B0E37F0012268D /* Supporting Files */,
+			);
+			path = JKBlockCommenter;
+			sourceTree = "<group>";
+		};
+		4A9A4C6119B0E37F0012268D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A9A4C6219B0E37F0012268D /* JKBlockCommenter-Info.plist */,
+				4A9A4C6319B0E37F0012268D /* InfoPlist.strings */,
+				4A9A4C6919B0E37F0012268D /* JKBlockCommenter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A9A4C5819B0E37F0012268D /* JKBlockCommenter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A9A4C6C19B0E37F0012268D /* Build configuration list for PBXNativeTarget "JKBlockCommenter" */;
+			buildPhases = (
+				4A9A4C5519B0E37F0012268D /* Sources */,
+				4A9A4C5619B0E37F0012268D /* Frameworks */,
+				4A9A4C5719B0E37F0012268D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JKBlockCommenter;
+			productName = JKBlockCommenter;
+			productReference = 4A9A4C5919B0E37F0012268D /* JKBlockCommenter.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A9A4C5119B0E37F0012268D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JK;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Johnykutty;
+			};
+			buildConfigurationList = 4A9A4C5419B0E37F0012268D /* Build configuration list for PBXProject "JKBlockCommenter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4A9A4C5019B0E37F0012268D;
+			productRefGroup = 4A9A4C5A19B0E37F0012268D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A9A4C5819B0E37F0012268D /* JKBlockCommenter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A9A4C5719B0E37F0012268D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9A4C6519B0E37F0012268D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A9A4C5519B0E37F0012268D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9A4C6819B0E37F0012268D /* JKJKBlockCommenter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4A9A4C6319B0E37F0012268D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A9A4C6419B0E37F0012268D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4A9A4C6A19B0E37F0012268D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4A9A4C6B19B0E37F0012268D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4A9A4C6D19B0E37F0012268D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JKBlockCommenter/JKBlockCommenter-Prefix.pch";
+				INFOPLIST_FILE = "JKBlockCommenter/JKBlockCommenter-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		4A9A4C6E19B0E37F0012268D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JKBlockCommenter/JKBlockCommenter-Prefix.pch";
+				INFOPLIST_FILE = "JKBlockCommenter/JKBlockCommenter-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A9A4C5419B0E37F0012268D /* Build configuration list for PBXProject "JKBlockCommenter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A9A4C6A19B0E37F0012268D /* Debug */,
+				4A9A4C6B19B0E37F0012268D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A9A4C6C19B0E37F0012268D /* Build configuration list for PBXNativeTarget "JKBlockCommenter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A9A4C6D19B0E37F0012268D /* Debug */,
+				4A9A4C6E19B0E37F0012268D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A9A4C5119B0E37F0012268D /* Project object */;
+}
