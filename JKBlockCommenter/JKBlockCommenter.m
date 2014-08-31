@@ -1,21 +1,21 @@
 //
-//  JKJKBlockCommenter.m
-//  JKJKBlockCommenter
+//  JKBlockCommenter.m
+//  JKBlockCommenter
 //
 //  Created by Johnykutty on 29/08/14.
 //    Copyright (c) 2014 Johnykutty. All rights reserved.
 //
 
-#import "JKJKBlockCommenter.h"
+#import "JKBlockCommenter.h"
 
-static JKJKBlockCommenter *sharedPlugin;
+static JKBlockCommenter *sharedPlugin;
 
-@interface JKJKBlockCommenter()
+@interface JKBlockCommenter()
 @property (nonatomic, strong) NSTextView *activeTextView;
 @property (nonatomic, strong) NSBundle *bundle;
 @end
 
-@implementation JKJKBlockCommenter
+@implementation JKBlockCommenter
 
 + (void)pluginDidLoad:(NSBundle *)plugin
 {

@@ -10,7 +10,7 @@
 		4A9A4C5D19B0E37F0012268D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9A4C5C19B0E37F0012268D /* AppKit.framework */; };
 		4A9A4C5F19B0E37F0012268D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9A4C5E19B0E37F0012268D /* Foundation.framework */; };
 		4A9A4C6519B0E37F0012268D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9A4C6319B0E37F0012268D /* InfoPlist.strings */; };
-		4A9A4C6819B0E37F0012268D /* JKJKBlockCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A4C6719B0E37F0012268D /* JKJKBlockCommenter.m */; };
+		4A9A4C6819B0E37F0012268D /* JKBlockCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A4C6719B0E37F0012268D /* JKBlockCommenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,8 +19,8 @@
 		4A9A4C5E19B0E37F0012268D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A9A4C6219B0E37F0012268D /* JKBlockCommenter-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JKBlockCommenter-Info.plist"; sourceTree = "<group>"; };
 		4A9A4C6419B0E37F0012268D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4A9A4C6619B0E37F0012268D /* JKJKBlockCommenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJKBlockCommenter.h; sourceTree = "<group>"; };
-		4A9A4C6719B0E37F0012268D /* JKJKBlockCommenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKJKBlockCommenter.m; sourceTree = "<group>"; };
+		4A9A4C6619B0E37F0012268D /* JKBlockCommenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKBlockCommenter.h; sourceTree = "<group>"; };
+		4A9A4C6719B0E37F0012268D /* JKBlockCommenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKBlockCommenter.m; sourceTree = "<group>"; };
 		4A9A4C6919B0E37F0012268D /* JKBlockCommenter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKBlockCommenter-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,8 +66,8 @@
 		4A9A4C6019B0E37F0012268D /* JKBlockCommenter */ = {
 			isa = PBXGroup;
 			children = (
-				4A9A4C6619B0E37F0012268D /* JKJKBlockCommenter.h */,
-				4A9A4C6719B0E37F0012268D /* JKJKBlockCommenter.m */,
+				4A9A4C6619B0E37F0012268D /* JKBlockCommenter.h */,
+				4A9A4C6719B0E37F0012268D /* JKBlockCommenter.m */,
 				4A9A4C6119B0E37F0012268D /* Supporting Files */,
 			);
 			path = JKBlockCommenter;
@@ -146,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A9A4C6819B0E37F0012268D /* JKJKBlockCommenter.m in Sources */,
+				4A9A4C6819B0E37F0012268D /* JKBlockCommenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +283,7 @@
 				4A9A4C6E19B0E37F0012268D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
