@@ -7,6 +7,7 @@
 //
 
 #import "JKBlockCommenter.h"
+#import "NSString+JKAdditions.h"
 
 static JKBlockCommenter *sharedPlugin;
 
@@ -33,38 +34,42 @@ static JKBlockCommenter *sharedPlugin;
     if (self = [super init]) {
         self.bundle = plugin;
         
-        NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"File"];
+        NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
         if (menuItem) {
             [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-            NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Do Action" action:@selector(doMenuAction) keyEquivalent:@""];
-            [actionMenuItem setTarget:self];
-            [[menuItem submenu] addItem:actionMenuItem];
+            NSMenuItem *commentMenuItem = [[NSMenuItem alloc] initWithTitle:@"Comment Selection With /* ... */" action:@selector(commentOrUncomment) keyEquivalent:@"/"];
+            [commentMenuItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSAlternateKeyMask];
+            [commentMenuItem setTarget:self];
+            [[menuItem submenu] addItem:commentMenuItem];
         }
     }
     return self;
 }
 
-// Sample Action, for menu item:
-- (void)doMenuAction
+- (void) commentOrUncomment
 {
-    NSMutableString *fullString = [[self.activeTextView string] mutableCopy];
     NSRange selectedRange = [self.activeTextView selectedRange];
+    if (!selectedRange.length) {
+        return;
+    }
+    NSMutableString *fullString = [[self.activeTextView string] mutableCopy];
     NSString *selectedString = [fullString substringWithRange:selectedRange];
     
-    NSString *stringToReplace = [NSString stringWithFormat:@"/* %@ */",selectedString];
-    [fullString replaceCharactersInRange:selectedRange withString:stringToReplace];
+    NSString *stringToReplace = [selectedString jk_isAcomment] ? [selectedString jk_commentremovedString] : [selectedString jk_commentedString];
     
-    [self.activeTextView  setString:fullString];
-
+    if ([self.activeTextView shouldChangeTextInRange:selectedRange replacementString:stringToReplace]){
+        [[self.activeTextView textStorage] beginEditing];
+        [[self.activeTextView  textStorage] replaceCharactersInRange:selectedRange withString:stringToReplace];
+        [[self.activeTextView textStorage] endEditing];
+        [self.activeTextView didChangeText];
+    }
 }
 
 - (NSTextView *)activeTextView{
-    if (!_activeTextView) {
         NSResponder *firstResponder = [[NSApp keyWindow] firstResponder];
 		if ([firstResponder isKindOfClass:NSClassFromString(@"DVTSourceTextView")] && [firstResponder isKindOfClass:[NSTextView class]]) {
 			_activeTextView = (NSTextView *)firstResponder;
 		}
-    }
     return _activeTextView;
 }
 

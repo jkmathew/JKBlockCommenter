@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A3D622219B38D4C00BC7043 /* NSString+JKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D622119B38D4C00BC7043 /* NSString+JKAdditions.m */; };
 		4A9A4C5D19B0E37F0012268D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9A4C5C19B0E37F0012268D /* AppKit.framework */; };
 		4A9A4C5F19B0E37F0012268D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9A4C5E19B0E37F0012268D /* Foundation.framework */; };
 		4A9A4C6519B0E37F0012268D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A9A4C6319B0E37F0012268D /* InfoPlist.strings */; };
@@ -14,6 +15,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A3D622019B38D4C00BC7043 /* NSString+JKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JKAdditions.h"; sourceTree = "<group>"; };
+		4A3D622119B38D4C00BC7043 /* NSString+JKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JKAdditions.m"; sourceTree = "<group>"; };
 		4A9A4C5919B0E37F0012268D /* JKBlockCommenter.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKBlockCommenter.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9A4C5C19B0E37F0012268D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		4A9A4C5E19B0E37F0012268D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,6 +71,8 @@
 			children = (
 				4A9A4C6619B0E37F0012268D /* JKBlockCommenter.h */,
 				4A9A4C6719B0E37F0012268D /* JKBlockCommenter.m */,
+				4A3D622019B38D4C00BC7043 /* NSString+JKAdditions.h */,
+				4A3D622119B38D4C00BC7043 /* NSString+JKAdditions.m */,
 				4A9A4C6119B0E37F0012268D /* Supporting Files */,
 			);
 			path = JKBlockCommenter;
@@ -146,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A3D622219B38D4C00BC7043 /* NSString+JKAdditions.m in Sources */,
 				4A9A4C6819B0E37F0012268D /* JKBlockCommenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
