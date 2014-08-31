@@ -11,7 +11,7 @@
 static JKJKBlockCommenter *sharedPlugin;
 
 @interface JKJKBlockCommenter()
-
+@property (nonatomic, strong) NSTextView *activeTextView;
 @property (nonatomic, strong) NSBundle *bundle;
 @end
 
@@ -31,12 +31,8 @@ static JKJKBlockCommenter *sharedPlugin;
 - (id)initWithBundle:(NSBundle *)plugin
 {
     if (self = [super init]) {
-        // reference to plugin's bundle, for resource acccess
         self.bundle = plugin;
         
-        // Create menu items, initialize UI, etc.
-
-        // Sample Menu Item:
         NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"File"];
         if (menuItem) {
             [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
@@ -51,8 +47,25 @@ static JKJKBlockCommenter *sharedPlugin;
 // Sample Action, for menu item:
 - (void)doMenuAction
 {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Hello, World" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
-    [alert runModal];
+    NSMutableString *fullString = [[self.activeTextView string] mutableCopy];
+    NSRange selectedRange = [self.activeTextView selectedRange];
+    NSString *selectedString = [fullString substringWithRange:selectedRange];
+    
+    NSString *stringToReplace = [NSString stringWithFormat:@"/* %@ */",selectedString];
+    [fullString replaceCharactersInRange:selectedRange withString:stringToReplace];
+    
+    [self.activeTextView  setString:fullString];
+
+}
+
+- (NSTextView *)activeTextView{
+    if (!_activeTextView) {
+        NSResponder *firstResponder = [[NSApp keyWindow] firstResponder];
+		if ([firstResponder isKindOfClass:NSClassFromString(@"DVTSourceTextView")] && [firstResponder isKindOfClass:[NSTextView class]]) {
+			_activeTextView = (NSTextView *)firstResponder;
+		}
+    }
+    return _activeTextView;
 }
 
 - (void)dealloc
