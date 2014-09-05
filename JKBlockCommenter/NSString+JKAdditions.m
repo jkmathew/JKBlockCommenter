@@ -11,14 +11,36 @@
 @implementation NSString (JKAdditions)
 
 - (NSString *)jk_commentedString{
+    
+    NSRegularExpression *expression = [[NSRegularExpression alloc] initWithPattern:@"^\\s*" options:0 error:NULL];
+    NSRange range = [expression rangeOfFirstMatchInString:self options:0 range:NSMakeRange(0, self.length)];
+    NSString *leadingSpaces = [self substringWithRange:range];
+    leadingSpaces = leadingSpaces.length ? leadingSpaces : @"";
+    
+    expression = [[NSRegularExpression alloc] initWithPattern:@"\\s*$" options:0 error:NULL];
+    range = [expression rangeOfFirstMatchInString:self options:0 range:NSMakeRange(0, self.length)];
+    NSString *trailingSpaces = [self substringWithRange:range];
+    trailingSpaces = trailingSpaces.length ? trailingSpaces : @"";
     NSString *trimmedString = [self jk_trimmedString];
-    return [NSString stringWithFormat:@"/* %@ */",trimmedString];
+
+    return [NSString stringWithFormat:@"%@/* %@ */%@",leadingSpaces,trimmedString,trailingSpaces];
 }
 
-- (NSString *)jk_commentremovedString{
+- (NSString *)jk_commentRemovedString{
     NSString *trimmedString = [self jk_trimmedString];
     if ([trimmedString jk_isAcomment]) {
-        return [trimmedString substringWithRange:NSMakeRange(2, trimmedString.length - 4)];
+        NSRegularExpression *expression = [[NSRegularExpression alloc] initWithPattern:@"^\\s*" options:0 error:NULL];
+        NSRange range = [expression rangeOfFirstMatchInString:self options:0 range:NSMakeRange(0, self.length)];
+        NSString *leadingSpaces = [self substringWithRange:range];
+        leadingSpaces = leadingSpaces.length ? leadingSpaces : @"";
+        
+        expression = [[NSRegularExpression alloc] initWithPattern:@"\\s*$" options:0 error:NULL];
+        range = [expression rangeOfFirstMatchInString:self options:0 range:NSMakeRange(0, self.length)];
+        NSString *trailingSpaces = [self substringWithRange:range];
+        trailingSpaces = trailingSpaces.length ? trailingSpaces : @"";
+        NSString *trimmedString = [self jk_trimmedString];
+        NSString *uncommentedCode = [trimmedString substringWithRange:NSMakeRange(2, trimmedString.length - 4)];
+        return [NSString stringWithFormat:@"%@%@%@",leadingSpaces,uncommentedCode,trailingSpaces];
     }
     return self;
 }

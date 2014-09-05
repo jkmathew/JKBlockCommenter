@@ -55,7 +55,7 @@ static JKBlockCommenter *sharedPlugin;
     NSMutableString *fullString = [[self.activeTextView string] mutableCopy];
     NSString *selectedString = [fullString substringWithRange:selectedRange];
     
-    NSString *stringToReplace = [selectedString jk_isAcomment] ? [selectedString jk_commentremovedString] : [selectedString jk_commentedString];
+    NSString *stringToReplace = [selectedString jk_isAcomment] ? [selectedString jk_commentRemovedString] : [selectedString jk_commentedString];
     
     if ([self.activeTextView shouldChangeTextInRange:selectedRange replacementString:stringToReplace]){
         [[self.activeTextView textStorage] beginEditing];

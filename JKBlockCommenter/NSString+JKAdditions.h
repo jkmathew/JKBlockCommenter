@@ -11,6 +11,6 @@
 @interface NSString (JKAdditions)
 
 - (NSString *)jk_commentedString;
-- (NSString *)jk_commentremovedString;
+- (NSString *)jk_commentRemovedString;
 - (BOOL)jk_isAcomment;
 @end
