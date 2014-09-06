@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A01FD8419BAF76200813C03 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		4A3D622019B38D4C00BC7043 /* NSString+JKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JKAdditions.h"; sourceTree = "<group>"; };
 		4A3D622119B38D4C00BC7043 /* NSString+JKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JKAdditions.m"; sourceTree = "<group>"; };
 		4A9A4C5919B0E37F0012268D /* JKBlockCommenter.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JKBlockCommenter.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +82,7 @@
 		4A9A4C6119B0E37F0012268D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4A01FD8419BAF76200813C03 /* README.md */,
 				4A9A4C6219B0E37F0012268D /* JKBlockCommenter-Info.plist */,
 				4A9A4C6319B0E37F0012268D /* InfoPlist.strings */,
 				4A9A4C6919B0E37F0012268D /* JKBlockCommenter-Prefix.pch */,
@@ -98,6 +100,7 @@
 				4A9A4C5519B0E37F0012268D /* Sources */,
 				4A9A4C5619B0E37F0012268D /* Frameworks */,
 				4A9A4C5719B0E37F0012268D /* Resources */,
+				4A01FD8519BAFA1300813C03 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -145,6 +148,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A01FD8519BAFA1300813C03 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n# by Andreas Monitzer (@anlumo1) and Pepi Zawodsky (@MacLemon)\n#\n# This script published under WTF license\n# http://en.wikipedia.org/wiki/WTFPL\n# Improvements to this script are welcome though.\n\n# Augments the Info.plist with a lot of nice stuff.\n# It's suggested to call this script from a \"run script\" build phase, not copy the script's contents there.\n\n# All Values are available from Objective-C like this:\n# Example\n# NSDictionary *infoPList = [[NSBundle mainBundle] infoDictionary];\n# NSLog(@\"CFBundleShortVersionString: %@\", [infoPList objectForKey:@\"CFBundleShortVersionString\"]);\n\n\nGITPATH=\"${PROJECT_DIR}/.git\"\n\necho \"Checking for file $GITPATH\"\n\n# When using git SCM\nif [ -e \"$GITPATH\" ]\nthen\n\n# Get a svn-like revision number that keeps increasing with every commit.\nREV=$(git log --pretty=format:'' | wc -l | sed 's/[ \\t]//g')\necho \"git rev: $REV\"\n\n# Getting the current branch\nGITBRANCH=$(git branch | grep \"*\" | sed -e 's/^* //')\necho \"Git Branch: $GITBRANCH\"\n# To prevent local builds from displaying incorrent branches we need to delete and readd.\n/usr/libexec/PlistBuddy -c \"Delete :GitBranch string\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n/usr/libexec/PlistBuddy -c \"Add :GitBranch string $GITBRANCH\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n\n# full build hash\nGITHASH=$(git rev-parse HEAD)\necho \"Git Hash: $GITHASH\"\n/usr/libexec/PlistBuddy -c \"Delete :GitHash string\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n/usr/libexec/PlistBuddy -c \"Add :GitHash string $GITHASH\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n\n# commonly used short hash\nGITHASHSHORT=$(git rev-parse --short HEAD)\necho \"Git Hash Short: $GITHASHSHORT\"\n/usr/libexec/PlistBuddy -c \"Delete :GitShortHash string\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n/usr/libexec/PlistBuddy -c \"Add :GitShortHash string $GITHASHSHORT\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n\n# parsing tags to build the CFBundleVersion in the form of <MAJOR>.<MINOR>.<PATCH>.<REV>\n# Parts of the version number that are missing are substituted with zeros.\nNEAREST=$(git describe --abbrev=0 --match \"release_[0-9]*\")\necho \"Nearest release Tag: \\\"$NEAREST\\\"\"\n\nMAJOR=\"0\"\nMINOR=\"0\"\nPATCH=\"0\"\nif [ \"$NEAREST\" == \"\" ]\nthen\necho \"No release tag found!\"\nelse\nMAJOR=$(echo $NEAREST | cut -d \"_\" -f 2)\nif [ $MAJOR == \"\" ]\nthen\nMAJOR=\"0\"\nelse\nMINOR=$(echo $NEAREST | cut -d \"_\" -f 3)\nif [ $MINOR == \"\" ]\nthen\nMINOR=\"0\"\nelse\nPATCH=$(echo $NEAREST | cut -d \"_\" -f 4)\nif [ $PATCH == \"\" ]\nthen\nPATCH=\"0\"\nfi\nfi\nfi\nfi\n\necho \"Version String: $MAJOR.$MINOR.$PATCH.$REV\"\n\n# Setting in the Info.plist file\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $MAJOR.$MINOR.$PATCH.$REV\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $MAJOR.$MINOR.$PATCH.$REV ($GITHASHSHORT)\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\n\nfi\n\n#EOF";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4A9A4C5519B0E37F0012268D /* Sources */ = {
