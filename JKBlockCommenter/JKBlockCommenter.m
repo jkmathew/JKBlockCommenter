@@ -25,6 +25,7 @@ static JKBlockCommenter *sharedPlugin;
     if ([currentApplicationName isEqual:@"Xcode"]) {
         dispatch_once(&onceToken, ^{
             sharedPlugin = [[self alloc] initWithBundle:plugin];
+//            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidChanged:) name:NSMenuDidChangeItemNotification object:nil];
         });
     }
 }
@@ -33,18 +34,39 @@ static JKBlockCommenter *sharedPlugin;
 {
     if (self = [super init]) {
         self.bundle = plugin;
-        
-        NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
-        if (menuItem) {
-            [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-            NSMenuItem *commentMenuItem = [[NSMenuItem alloc] initWithTitle:@"Comment Selection With /* ... */" action:@selector(commentOrUncomment) keyEquivalent:@"/"];
-            [commentMenuItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSAlternateKeyMask];
-            [commentMenuItem setTarget:self];
-            [[menuItem submenu] addItem:commentMenuItem];
-        }
+        [self createMenu];
     }
     return self;
 }
+
+/* +(void)menuDidChanged:(NSNotification *)nofification{
+    [self createMenu];
+} */
+- (void)createMenu
+{
+    NSMenuItem *editMenu = [[NSApp mainMenu] itemWithTitle:@"Edit"];
+    if (editMenu) {
+        [[editMenu submenu] addItem:[NSMenuItem separatorItem]];
+        NSMenuItem *commentMenuItem = [[NSMenuItem alloc] initWithTitle:@"Comment Selection With /* ... */" action:@selector(commentOrUncomment) keyEquivalent:@"/"];
+        [commentMenuItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSAlternateKeyMask];
+        [commentMenuItem setTarget:self];
+        [[editMenu submenu] addItem:commentMenuItem];
+    }
+}
+/* - (void)createMenu
+{
+    NSMenuItem *editormenu = [[NSApp mainMenu] itemWithTitle:@"Editor"];
+    if (editormenu) {
+        NSMenuItem *structureMenu = [[editormenu submenu] itemWithTitle:@"Structure"];
+        if (structureMenu) {
+            [[structureMenu submenu] addItem:[NSMenuItem separatorItem]];
+            NSMenuItem *commentMenuItem = [[NSMenuItem alloc] initWithTitle:@"Comment Selection With / * ... * /" action:@selector(commentOrUncomment) keyEquivalent:@"/"];
+            [commentMenuItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSAlternateKeyMask];
+            [commentMenuItem setTarget:self];
+            [[structureMenu submenu] addItem:commentMenuItem];
+        }
+    }
+} */
 
 - (void) commentOrUncomment
 {

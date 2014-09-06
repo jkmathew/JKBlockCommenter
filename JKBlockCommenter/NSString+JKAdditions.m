@@ -23,7 +23,7 @@
     trailingSpaces = trailingSpaces.length ? trailingSpaces : @"";
     NSString *trimmedString = [self jk_trimmedString];
 
-    return [NSString stringWithFormat:@"%@/* %@ */%@",leadingSpaces,trimmedString,trailingSpaces];
+    return [NSString stringWithFormat:@"%@/*%@*/%@",leadingSpaces,trimmedString,trailingSpaces];
 }
 
 - (NSString *)jk_commentRemovedString{
