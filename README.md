@@ -1,7 +1,10 @@
 #JKBlockCommenter
-Xcode plugin to comment selected code segment with /* ... */  easily
+Xcode plugin to comment selected code segment with /*...*/ by pressing `⌘⌥/` keys together
 ##How to install
-Download this and build it in Xcode. You'll need to restart Xcode after the installation.
+You can install either by following methods
+* Download or clone this repository and build it in Xcode. You'll need to restart Xcode after the installation.
+* Download the release, unzip it amd copy the `JKBlockCommenter.xcplugin` file to `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins`
+* Install via [Alcatraz](http://alcatraz.io)
 ##How to use
 * Select code segment to be commented
 * Press `⌘`, `⌥` and `/` keys together or  From `Edit` menu select `Comment Selection With /* ... */`
