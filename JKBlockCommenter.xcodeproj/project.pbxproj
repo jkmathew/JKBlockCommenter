@@ -118,7 +118,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = JK;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Johnykutty;
 			};
 			buildConfigurationList = 4A9A4C5419B0E37F0012268D /* Build configuration list for PBXProject "JKBlockCommenter" */;
@@ -206,6 +206,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -269,6 +270,7 @@
 				GCC_PREFIX_HEADER = "JKBlockCommenter/JKBlockCommenter-Prefix.pch";
 				INFOPLIST_FILE = "JKBlockCommenter/JKBlockCommenter-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnykutty.JKBlockCommenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xcplugin;
 			};
@@ -284,6 +286,7 @@
 				GCC_PREFIX_HEADER = "JKBlockCommenter/JKBlockCommenter-Prefix.pch";
 				INFOPLIST_FILE = "JKBlockCommenter/JKBlockCommenter-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnykutty.JKBlockCommenter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xcplugin;
 			};

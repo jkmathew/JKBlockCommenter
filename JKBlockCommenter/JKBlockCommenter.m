@@ -25,7 +25,6 @@ static JKBlockCommenter *sharedPlugin;
     if ([currentApplicationName isEqual:@"Xcode"]) {
         dispatch_once(&onceToken, ^{
             sharedPlugin = [[self alloc] initWithBundle:plugin];
-//            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidChanged:) name:NSMenuDidChangeItemNotification object:nil];
         });
     }
 }
@@ -34,39 +33,40 @@ static JKBlockCommenter *sharedPlugin;
 {
     if (self = [super init]) {
         self.bundle = plugin;
-        [self createMenu];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didApplicationFinishLaunchingNotification:)
+                                                     name:NSApplicationDidFinishLaunchingNotification
+                                                   object:nil];
     }
     return self;
 }
 
-/* +(void)menuDidChanged:(NSNotification *)nofification{
+- (void)didApplicationFinishLaunchingNotification:(NSNotification*)noti
+{
     [self createMenu];
-} */
+}
+
 - (void)createMenu
 {
+    //removeObserver
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
+    
     NSMenuItem *editMenu = [[NSApp mainMenu] itemWithTitle:@"Edit"];
     if (editMenu) {
+        NSString *menuTitle = @"Comment Selection With /* ... */";
+        
+        //Check whether already exists
+        if ([[editMenu submenu] itemWithTitle:menuTitle]) {
+            //no need to create again
+            return;
+        }
         [[editMenu submenu] addItem:[NSMenuItem separatorItem]];
-        NSMenuItem *commentMenuItem = [[NSMenuItem alloc] initWithTitle:@"Comment Selection With /* ... */" action:@selector(commentOrUncomment) keyEquivalent:@"/"];
+        NSMenuItem *commentMenuItem = [[NSMenuItem alloc] initWithTitle:menuTitle action:@selector(commentOrUncomment) keyEquivalent:@"/"];
         [commentMenuItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSAlternateKeyMask];
         [commentMenuItem setTarget:self];
         [[editMenu submenu] addItem:commentMenuItem];
     }
 }
-/* - (void)createMenu
-{
-    NSMenuItem *editormenu = [[NSApp mainMenu] itemWithTitle:@"Editor"];
-    if (editormenu) {
-        NSMenuItem *structureMenu = [[editormenu submenu] itemWithTitle:@"Structure"];
-        if (structureMenu) {
-            [[structureMenu submenu] addItem:[NSMenuItem separatorItem]];
-            NSMenuItem *commentMenuItem = [[NSMenuItem alloc] initWithTitle:@"Comment Selection With / * ... * /" action:@selector(commentOrUncomment) keyEquivalent:@"/"];
-            [commentMenuItem setKeyEquivalentModifierMask:NSCommandKeyMask | NSAlternateKeyMask];
-            [commentMenuItem setTarget:self];
-            [[structureMenu submenu] addItem:commentMenuItem];
-        }
-    }
-} */
 
 - (void) commentOrUncomment
 {
@@ -88,10 +88,10 @@ static JKBlockCommenter *sharedPlugin;
 }
 
 - (NSTextView *)activeTextView{
-        NSResponder *firstResponder = [[NSApp keyWindow] firstResponder];
-		if ([firstResponder isKindOfClass:NSClassFromString(@"DVTSourceTextView")] && [firstResponder isKindOfClass:[NSTextView class]]) {
-			_activeTextView = (NSTextView *)firstResponder;
-		}
+    NSResponder *firstResponder = [[NSApp keyWindow] firstResponder];
+    if ([firstResponder isKindOfClass:NSClassFromString(@"DVTSourceTextView")] && [firstResponder isKindOfClass:[NSTextView class]]) {
+        _activeTextView = (NSTextView *)firstResponder;
+    }
     return _activeTextView;
 }
 

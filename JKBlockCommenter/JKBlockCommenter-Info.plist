@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.johnykutty.JKBlockCommenter</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -22,18 +22,9 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>NSPrincipalClass</key>
-	<string>JKBlockCommenter</string>
-	<key>XC4Compatible</key>
-	<true/>
-	<key>XC5Compatible</key>
-	<true/>
-	<key>XCGCReady</key>
-	<true/>
-	<key>XCPluginHasUI</key>
-	<false/>
 	<key>DVTPlugInCompatibilityUUIDs</key>
 	<array>
+		<string>0420B86A-AA43-4792-9ED0-6FE0F2B16A13</string>
 		<string>FEC992CC-CA4A-4CFD-8881-77300FCB848A</string>
 		<string>C4A681B0-4A26-480E-93EC-1218098B9AA0</string>
 		<string>640F884E-CE55-4B40-87C0-8869546CAB7A</string>
@@ -48,5 +39,15 @@
 		<string>8DC44374-2B35-4C57-A6FE-2AD66A36AAD9</string>
 		<string>9F75337B-21B4-4ADC-B558-F9CADF7073A7</string>
 	</array>
+	<key>NSPrincipalClass</key>
+	<string>JKBlockCommenter</string>
+	<key>XC4Compatible</key>
+	<true/>
+	<key>XC5Compatible</key>
+	<true/>
+	<key>XCGCReady</key>
+	<true/>
+	<key>XCPluginHasUI</key>
+	<false/>
 </dict>
 </plist>
